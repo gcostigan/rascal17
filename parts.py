@@ -10,7 +10,6 @@ class trencher:
     def origin(self):
 
 
-
 class ice_extracter:
     def heat(self, amount):
 
