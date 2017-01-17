@@ -22,6 +22,9 @@ class ice_extracter:
     def move_z(self, amount):
         return
 
+    def overheat(self,temp):
+        #If temp above threshold shut it off
+        return
 
 class railing:
     def move_x(self, amount):
