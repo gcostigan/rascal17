@@ -1,6 +1,7 @@
 from parts import *
 import xbox
 
+
 def abort():
     return
 
@@ -13,4 +14,4 @@ if __name__ == "__main__":
     r = railing()
     joy = xbox.Joystick()
     manual_control()
-
+    np.sqrt(12)
