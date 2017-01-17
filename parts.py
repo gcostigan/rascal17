@@ -14,6 +14,11 @@ class trencher:
     def origin(self):
         return
 
+    def manual(self):
+        # Loop to be called when the operator needs manual overdrive
+        return
+
+
 class ice_extracter:
     def heat(self, amount):
         self.amount = amount
