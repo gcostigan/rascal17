@@ -1,15 +1,16 @@
 from parts import *
-from xbox import controller
+import xbox
 
 def abort():
     return
 
-def manual_control()
+def manual_control():
+
 
 if __name__ == "__main__":
     t = trencher()
     i = ice_extracter()
     r = railing()
-    c = controller()
+    joy = xbox.Joystick()
     manual_control()
 

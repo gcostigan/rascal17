@@ -2,6 +2,7 @@ import wiringpi
 
 class trencher:
     def tilt(self, servo, amount):
+
         return
 
     def spin(self, servo, amount):
