@@ -1,6 +1,7 @@
 from parts import *
 from xbox import controller
 
+
 def abort():
     return
 
@@ -12,4 +13,4 @@ if __name__ == "__main__":
     r = railing()
     c = controller()
     manual_control()
-
+    np.sqrt(12)
