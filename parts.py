@@ -2,13 +2,9 @@ import wiringpi
 
 class trencher:
     def tilt(self, servo, amount):
-        self.servo = servo
-        self.amount = amount
         return
 
     def spin(self, servo, amount):
-        self.servo = servo
-        self.amount = amount
         return
 
     def origin(self):
@@ -20,20 +16,25 @@ class trencher:
 
 
 class ice_extracter:
-    def heat(self, amount):
-        self.amount = amount
+    def heat(self, on_off): #assuming heating is an on/off operation was can use true/false. If value we can change to amount
+        while(True):
+            #send current to can to heat up
         return
 
     def move_z(self, amount):
-        self.amount = amount
+        canStepper.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
+    def overheat(self,temp):
+        if temp>200 #change this to whatever temp we need
+            #turn off current to can
+        return
 
 class railing:
     def move_x(self, amount):
-        self.amount = amount
+        railStepperx.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
     def move_y(self, amount):
-        self.amount = amount
+        railSteppery.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
