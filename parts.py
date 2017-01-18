@@ -1,17 +1,23 @@
 import wiringpi
 
 class trencher:
-    def tilt(self, servo, amount):
+    def tilt(self, amount):
         return
 
-    def spin(self, servo, amount):
+    def spin(self, amount):
+        if (amount > 0):
+            #dir foward
+        else:
+            #dir backward
         return
-
     def origin(self):
         return
 
     def manual(self):
         # Loop to be called when the operator needs manual overdrive
+        while(True):
+            # continuously spinning forward or backward, 100 steps is just a guess for now!
+            #need a break statement
         return
 
 
