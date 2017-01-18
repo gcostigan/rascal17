@@ -10,7 +10,10 @@ def abort():
     return
 
 def manual_control():
-    # Do manual control until toggled out
+    goto_auto = 0
+    while goto_auto == 0:
+        # Do manual control until toggled out
+        joy.
 
 if __name__ == "__main__":
     manual_control()
