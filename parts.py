@@ -59,3 +59,8 @@ class railing:
     def move_y(self, amount):
         railSteppery.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
+
+class pump:
+    def run_pump(self):
+        #turn on pump
+
