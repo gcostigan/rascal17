@@ -3,41 +3,65 @@ import sys
 import time
 
 def universalMode():
+    print "Entering Universal Mode..."
+    print "Stopping controller..."
     xboxCont.stop()
+    print "Changing layout..."
     xboxCont.setupControlCallback(xboxCont.XboxControls.A, canMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.B, trencherMode)
     xboxCont.start()
+    print "Ready"
 
 def canMode():
+    print "Entering Can Mode..."
+    print "Stopping controller..."
     xboxCont.stop()
+    print "Changing layout..."
     xboxCont.setupControlCallback(xboxCont.XboxControls.Y, universalMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.B, meltMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.A, positionMode)
     xboxCont.start()
+    print "Ready"
 
 def meltMode():
+    print "Entering Melt Mode..."
+    print "Stopping controller..."
     xboxCont.stop()
+    print "Changing layout..."
     xboxCont.setupControlCallback(xboxCont.XboxControls.Y, universalMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.B, turnOffPump)
     xboxCont.setupControlCallback(xboxCont.XboxControls.A, turnOnPump)
     xboxCont.setupControlCallback(xboxCont.XboxControls.X, toggleHeat)
     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBY, zMove)
     xboxCont.start()
+    print "Ready"
 
 def positionMode():
+    print "Entering Position Mode..."
+    print "Stopping controller..."
     xboxCont.stop()
+    print "Changing layout..."
     xboxCont.setupControlCallback(xboxCont.XboxControls.Y, canMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBY, yMove)
     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBX, xMove)
+    xboxCont.start()
+    print "Ready"
 
 def trencherMode():
+    print "Entering Trencher Mode..."
+    print "Stopping controller..."
     xboxCont.stop()
+    print "Changing layout..."
     xboxCont.setupControlCallback(xboxCont.XboxControls.Y, universalMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.A, digMode)
     xboxCont.start()
+    print "Ready"
 
 def digMode():
+    print "Entering Dig Mode..."
+    print "Stopping controller..."
     xboxCont.stop()
+    print "Changing layout..."
     xboxCont.setupControlCallback(xboxCont.XboxControls.Y, universalMode)
     xboxCont.setupControlCallback(xboxCont.XboxControls.B, stopBelt)
     xboxCont.setupControlCallback(xboxCont.XboxControls.A, runBelt)
@@ -47,6 +71,7 @@ def digMode():
     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBY, zMove)
     xboxCont.setupControlCallback(xboxCont.XboxControls.LTHUMBX, xMove)
     xboxCont.start()
+    print "Ready"
 
 if __name__ == "__main__":
     xboxCont = XboxController.XboxController(
@@ -59,8 +84,9 @@ if __name__ == "__main__":
     try:
         #start the controller
         xboxCont.start()
-        print "xbox controller running"
+        print "Xbox controller running"
         universalMode()
+        print "Main loop started"
         while True:
             time.sleep(1)
 
