@@ -3,7 +3,7 @@ import sys
 import time
 
 def universalMode():
-    print "Entering Universal Mode..."
+    print "Entering Universal Mode... "
     print "Stopping controller..."
     xboxCont.stop()
     print "Changing layout..."
