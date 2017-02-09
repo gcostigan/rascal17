@@ -4,8 +4,7 @@ import XboxController
 
 t = trencher()
 i = ice_extracter()
-#r = railing() - dont need railing anymore
-
+r = railing()
 xbox = XboxController.XboxController(
     controllerCallBack = None,
     joystickNo = 0,
@@ -13,7 +12,6 @@ xbox = XboxController.XboxController(
     scale = 1,
     invertYAxis = False)
 
-#added abort button on control layouts
 def abort():
     return
 
@@ -24,24 +22,3 @@ def manual_control():
 
 if __name__ == "__main__":
     manual_control()
-
-    """
-    Example:
-
-    import xbox
-    joy = xbox.Joystick()         #Initialize joystick
-
-    if joy.A():                   #Test state of the A button (1=pressed, 0=not pressed)
-        print 'A button pressed'
-    x_axis   = joy.leftX()        #X-axis of the left stick (values -1.0 to 1.0)
-    (x,y)    = joy.leftStick()    #Returns tuple containing left X and Y axes (values -1.0 to 1.0)
-    trigger  = joy.rightTrigger() #Right trigger position (values 0 to 1.0)
-
-    joy.close()                   #Cleanup before exit
-    """
-
-    # LOOK AT ME! Websites with helpful code:
-    # https://github.com/FRC4564/Xbox
-    # https://raw.githubusercontent.com/FRC4564/Xbox/master/xbox.py
-    # https://raw.githubusercontent.com/FRC4564/Xbox/master/sample.py
-

@@ -18,17 +18,13 @@ class trencher:
             #dir foward
         else:
             #dir backward
+        return
 
     def spin(self, amount):
         if (amount > 0):
             #dir foward
         else:
             #dir backward
-
-    def move_x(self, amount):
-        return
-
-    def move_y(self, amount):
         return
 
     def origin(self):
@@ -43,21 +39,31 @@ class trencher:
 
 
 class ice_extracter:
-    def heat(self, on_off): #assuming heating is an on/off operation was can use true/false. If value we can change to amount
+    def heat(self, heat_on_off): #assuming heating is an on/off operation was can use true/false. If value we can change to amount
         while(True):
             #send current to can to heat up
         return
 
     def move_z(self, amount):
+        canStepper.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
     def overheat(self,temp):
         if temp>200 #change this to whatever temp we need
             #turn off current to can
         return
+
+class railing:
     def move_x(self, amount):
+        railStepper_x.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
     def move_y(self, amount):
+        railStepper_y.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
+class pump:
+    def run_pump(self, pump_on_off):
+        while(True)
+            #run pump
+        return
