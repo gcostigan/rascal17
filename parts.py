@@ -25,6 +25,12 @@ class trencher:
         else:
             #dir backward
 
+    def move_x(self, amount):
+        return
+
+    def move_y(self, amount):
+        return
+
     def origin(self):
         return
 
@@ -43,19 +49,15 @@ class ice_extracter:
         return
 
     def move_z(self, amount):
-        canStepper.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
     def overheat(self,temp):
         if temp>200 #change this to whatever temp we need
             #turn off current to can
         return
-
-class railing:
     def move_x(self, amount):
-        railStepperx.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
     def move_y(self, amount):
-        railSteppery.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
+
