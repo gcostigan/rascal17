@@ -10,7 +10,7 @@ GPIO.setmode(GPIO.BCM)
 # Define GPIO signals to use
 # Physical pins 11,15,16,18
 # GPIO17,GPIO22,GPIO23,GPIO24
-StepPins = [17, 22, 23, 24] #CHANGE NUMBERS WHEN WE KNOW WHAT PINS TO USE!
+
 
 class trencher:
     def tilt(self, amount):
@@ -25,6 +25,12 @@ class trencher:
             #dir foward
         else:
             #dir backward
+        return
+
+    def move_x (self, amount):
+        return
+
+    def move_y (self, amount):
         return
 
     def origin(self):
@@ -44,26 +50,17 @@ class ice_extracter:
             #send current to can to heat up
         return
 
-    def move_z(self, amount):
-        canStepper.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
-        return
-
-    def overheat(self,temp):
-        if temp>200 #change this to whatever temp we need
-            #turn off current to can
-        return
-
-class railing:
     def move_x(self, amount):
-        railStepper_x.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
     def move_y(self, amount):
-        railStepper_y.step(amount, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return
 
-class pump:
-    def run_pump(self, pump_on_off):
-        while(True)
-            #run pump
+    def move_z(self, amount):
         return
+
+    def overheat(self,temp):
+        if temp > 200 #change this to whatever temp we need
+            #turn off current to can
+        return
+
