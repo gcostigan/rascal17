@@ -27,6 +27,7 @@ class Motor(object):
         for p in pins:
             GPIO.setup(p,GPIO.out)
             GPIO.output(p,0)
+            ''' hi '''
 
     def _set_rpm(self, rpm):
         '''Set the turn speed in RPM'''
