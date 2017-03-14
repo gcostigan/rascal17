@@ -1,4 +1,52 @@
 import XboxController
+import motor
+import relay
+
+# Shift Register pins
+# Motor 1
+ENB1 = [0, 0]
+DIR1 = [0, 1]
+PUL1 = [0, 2]
+motor1 = motor.Motor(ENB1, DIR1, PUL1)
+
+# Motor 2
+ENB2 = [0, 3]
+DIR2 = [0, 4]
+PUL2 = [0, 5]
+motor2 = motor.Motor(ENB2, DIR2, PUL2)
+
+# Motor 3
+ENB3 = [0, 6]
+DIR3 = [0, 7]
+PUL3 = [1, 0]
+motor3 = motor.Motor(ENB3, DIR3, PUL3)
+
+# Motor 4
+ENB4 = [1, 1]
+DIR4 = [1, 2]
+PUL4 = [1, 3]
+motor4 = motor.Motor(ENB4, DIR4, PUL4)
+
+# Motor 5
+ENB5 = [1, 4]
+DIR5 = [1, 5]
+PUL5 = [1, 6]
+motor5 = motor.Motor(ENB5, DIR5, PUL5)
+
+# Motor 6
+ENB6 = [1, 7]
+DIR6 = [2, 0]
+PUL6 = [2, 1]
+motor6 = motor.Motor(ENB6, DIR6, PUL6)
+
+# Heat Tape
+HTPin = [3, 2]
+heat_tape_relay = relay.Relay(HTPin)
+
+# Pump
+PumpPin = [3, 3]
+pump_relay = relay.Relay(PumpPin)
+
 
 class Modes:
 
@@ -152,6 +200,7 @@ class Modes:
                 Belt = not Belt
                 if Belt:
                     print "Belt is on."
+                    motor6.enable()
                 else:
                     print "Belt is off."
             return
