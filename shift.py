@@ -1,7 +1,8 @@
 import RPi.GPIO as IO         # calling for header file which helps us use GPIO’s of PI
 import time
 
-class shiftReg:
+
+class ShiftRegister:
     def __init__(self, DATA, CLOCK, SHIFT, NUM):
         self.d.append(DATA)
         self.c.append(CLOCK)
