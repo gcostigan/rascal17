@@ -1,96 +1,105 @@
 import XboxController
 
+global Heat, Pump, Belt
+Heat, Pump, Belt = False, False, False
+
 class modes:
     
     def __init__(self):
-        self.xboxCont = XboxController.XboxController(
+        self.controller = XboxController.XboxController(
             controllerCallBack=None,
             deadzone=30,
             scale=100,
             invertYAxis=True)
-        
-    def empty(self, value):
+
+    @staticmethod
+    def empty(value):
         return
-    
-    
-    def universalMode(self, value):
+
+    def start(self):
+        self.controller.start()
+        return
+
+    def stop(self):
+        self.controller.stop()
+        return
+
+    def universal(self, value):
         if value == 1:
             print "Entering Universal Mode... "
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.A, self.canMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.B, self.trencherMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.X, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.Y, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBY, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBX, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.A, self.can)
+            self.controller.setupControlCallback(self.controller.XboxControls.B, self.trencherMode)
+            self.controller.setupControlCallback(self.controller.XboxControls.X, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.Y, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBX, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RTHUMBY, self.empty)
             print "Ready"
         return
-    
-    
-    def canMode(self, value):
+
+    def can(self, value):
         if value == 1:
             print "Entering Can Mode..."
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.Y, self.universalMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.B, self.meltMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.A, self.positionMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.X, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBY, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBX, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.Y, self.universal)
+            self.controller.setupControlCallback(self.controller.XboxControls.B, self.melt)
+            self.controller.setupControlCallback(self.controller.XboxControls.A, self.position)
+            self.controller.setupControlCallback(self.controller.XboxControls.X, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBX, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RTHUMBY, self.empty)
             print "Ready"
         return
-    
-    
-    def meltMode(self, value):
-        def togglePump(value):
-            if value == 1:
+
+    def melt(self, value):
+        def toggle_pump(val):
+            if val == 1:
                 global Pump
                 Pump = not Pump
-                if Pump == True:
+                if Pump:
                     print "Pump is on."
                 else:
                     print "Pump is off."
             return
     
-        def toggleHeat(value):
-            if value == 1:
+        def toggle_heat(val):
+            if val == 1:
                 global Heat
                 Heat = not Heat
-                if Heat == True:
+                if Heat:
                     print "Heat Tape is on."
                 else:
                     print "Heat Tape is off."
             return
     
-        def zMove(value):
-            if value > 1:
+        def z_move(val):
+            if val > 1:
                 print "Move Can Up"
-            if value < 1:
+            if val < 1:
                 print "Move Can Down"
-            if value == 0:
+            if val == 0:
                 print "Stop z movement."
             return
     
         if value == 1:
             print "Entering Melt Mode..."
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.Y, self.canMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.B, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.A, togglePump)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.X, toggleHeat)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBY, zMove)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBX, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.Y, self.can)
+            self.controller.setupControlCallback(self.controller.XboxControls.B, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.A, toggle_pump)
+            self.controller.setupControlCallback(self.controller.XboxControls.X, toggle_heat)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBY, z_move)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBX, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RTHUMBY, self.empty)
             print "Ready"
         return
     
     
-    def positionMode(self, value):
+    def position(self, value):
         def yMove(value):
             if value > 1:
                 print "Move Left"
@@ -111,15 +120,15 @@ class modes:
     
         if value == 1:
             print "Entering Position Mode..."
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.Y, self.canMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBY, yMove)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBX, xMove)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.X, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.A, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.B, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.Y, self.can)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBY, yMove)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBX, xMove)
+            self.controller.setupControlCallback(self.controller.XboxControls.X, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.A, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.B, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RTHUMBY, self.empty)
             print "Ready"
         return
     
@@ -127,20 +136,20 @@ class modes:
     def trencherMode(self, value):
         if value == 1:
             print "Entering Trencher Mode..."
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.Y, self.universalMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.A, self.digMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.X, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.B, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBY, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBX, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LB, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.Y, self.universal)
+            self.controller.setupControlCallback(self.controller.XboxControls.A, self.dig)
+            self.controller.setupControlCallback(self.controller.XboxControls.X, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.B, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBY, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBX, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.LB, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.RTHUMBY, self.empty)
             print "Ready"
         return
     
     
-    def digMode(self, value):
+    def dig(self, value):
         def toggleBelt(value):
             if value == 1:
                 global Belt
@@ -194,14 +203,14 @@ class modes:
     
         if value == 1:
             print "Entering Dig Mode..."
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.Y, self.universalMode)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.B, self.empty)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.A, toggleBelt)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RB, rollBeltForwards)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LB, rollBeltBackwards)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.RTHUMBY, tilt)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBY, zMove)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.LTHUMBX, xMove)
-            self.xboxCont.setupControlCallback(self.xboxCont.XboxControls.X, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.Y, self.universal)
+            self.controller.setupControlCallback(self.controller.XboxControls.B, self.empty)
+            self.controller.setupControlCallback(self.controller.XboxControls.A, toggleBelt)
+            self.controller.setupControlCallback(self.controller.XboxControls.RB, rollBeltForwards)
+            self.controller.setupControlCallback(self.controller.XboxControls.LB, rollBeltBackwards)
+            self.controller.setupControlCallback(self.controller.XboxControls.RTHUMBY, tilt)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBY, zMove)
+            self.controller.setupControlCallback(self.controller.XboxControls.LTHUMBX, xMove)
+            self.controller.setupControlCallback(self.controller.XboxControls.X, self.empty)
             print "Ready"
         return
