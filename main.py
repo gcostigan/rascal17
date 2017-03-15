@@ -25,9 +25,8 @@ if __name__ == "__main__":
     # error
     except:
         print "Unexpected error:", sys.exc_info()[0]
-        raise
 
     finally:
         # stop the controller
-        controller.stop()
+        controller.stop(1)
 
