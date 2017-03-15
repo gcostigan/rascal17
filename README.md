@@ -1,6 +1,6 @@
 ## UTK RASC-AL Competition
 
-###Run:
+### Run:
 ```
 sudo bash
 cd /home/pi/
@@ -12,8 +12,8 @@ chmod 755 start.sh
 ./start.sh
 ```
 
-###Documentation
+### Documentation
 
-![image](https://drive.google.com/file/d/0B6Xo_yqcKLAvdGRSZVRpVWJ3WVk/view?usp=sharing "CAD")
+![image](http://i.imgur.com/f57a03X.jpg "CAD")
 
 [more about XboxController library](http://www.stuffaboutcode.com/2014/10/raspberry-pi-xbox-360-controller-python.html)
