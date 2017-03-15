@@ -3,10 +3,6 @@ import sys
 import time
 
 if __name__ == "__main__":
-    # def controlCallBack(controlId, value):
-    #     print "Control id = {}, Value = {}".format(controlId, value)
-    #     # return controlId, value
-
     controller = modes.Modes()
 
     try:
