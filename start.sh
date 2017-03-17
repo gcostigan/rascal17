@@ -10,7 +10,7 @@ echo "Done."
 
 # Start the main script
 echo "Starting main script..."
-python main.py
+python code/main.py
 echo "Done."
 
 # Clean up and kill all background process
