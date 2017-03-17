@@ -4,7 +4,7 @@
 ```
 sudo bash
 cd /home/pi/
-apt-get update
+apt-get update -y
 git clone https://github.com/gecostigan/rascal17
 pip install -r requirements.txt
 sudo apt-get install xboxdrv
@@ -12,7 +12,7 @@ chmod 755 start.sh
 ./start.sh
 ```
 
-### Documentation
+### Documentation:
 
 ![image](http://i.imgur.com/f57a03X.jpg "CAD")
 
