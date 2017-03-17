@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Initialize header file
-cat test.txt
+cat startup_screen.txt
 
 # Start the xbox controller thread in the background to be called
 echo "Starting xbox controller instance..."
