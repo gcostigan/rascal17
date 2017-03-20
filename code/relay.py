@@ -6,6 +6,7 @@ class Relay:
     def __init__(self, pin):
         self.pin = pin
         self.status = False
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin, GPIO.OUT)
         GPIO.output(pin, 0)
 
