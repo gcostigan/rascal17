@@ -13,7 +13,7 @@ class Relay:
     def toggle(self):
         self.status = not self.status
         if self.status:
-            GPIO.output(pin, 1)
+            GPIO.output(self.pin, 1)
         else:
-            GPIO.output(pin, 0)
+            GPIO.output(self.pin, 0)
         return self.status
