@@ -1,6 +1,8 @@
 import XboxController
 import os
 import sys
+import relay
+
 '''
 import motor
 import relay
@@ -30,15 +32,17 @@ ENB4 = [1, 1]
 DIR4 = [1, 2]
 PUL4 = [1, 3]
 motor4 = motor.Motor(ENB4, DIR4, PUL4)
+'''
 
 # Heat Tape
-HTPin = [1, 4]
+HTPin = 6
 heat_tape_relay = relay.Relay(HTPin)
 
 # Pump
-PumpPin = [1, 5]
+PumpPin = 4
 pump_relay = relay.Relay(PumpPin)
 
+'''
 LA1_dir1 = [1, 6]
 LA1_dir2 = [1, 7]
 LA1 = actuator.Actuator(LA1_dir1, LA1_dir2)
@@ -59,8 +63,8 @@ class Modes:
             invertYAxis=True)
         self.controller.setupControlCallback(self.controller.XboxControls.XBOX, self.stop)
         self.exc_info = []
-        global Heat, Pump, Belt
-        Heat, Pump, Belt = False, False, False
+        global Belt
+        Belt = False
 
     @staticmethod
     def empty(value):
@@ -119,9 +123,8 @@ class Modes:
     def melt(self, value):
         def toggle_pump(val):
             if val == 1:
-                global Pump
-                Pump = not Pump
-                if Pump:
+                status = pump_relay.toggle()
+                if status:
                     print "Pump is on."
                 else:
                     print "Pump is off."
@@ -129,9 +132,8 @@ class Modes:
     
         def toggle_heat(val):
             if val == 1:
-                global Heat
-                Heat = not Heat
-                if Heat:
+                status = heat_tape_relay.toggle()
+                if status:
                     print "Heat Tape is on."
                 else:
                     print "Heat Tape is off."
