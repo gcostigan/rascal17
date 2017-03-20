@@ -2,19 +2,21 @@ import XboxController
 import os
 import sys
 import relay
+import motor
 
 '''
 import motor
 import relay
 import actuator
+'''
 
-# Shift Register pins
 # Motor 1
-ENB1 = [0, 0]
-DIR1 = [0, 1]
-PUL1 = [0, 2]
+ENB1 = 24
+DIR1 = 23
+PUL1 = 18
 motor1 = motor.Motor(ENB1, DIR1, PUL1)
 
+'''
 # Motor 2
 ENB2 = [0, 3]
 DIR2 = [0, 4]
@@ -142,8 +144,10 @@ class Modes:
         def z_move(val):
             if val > 1:
                 print "Move Can Up"
+                motor1.move(.05, 1)
             if val < 1:
                 print "Move Can Down"
+                motor1.move(.05, 0)
             if val == 0:
                 print "Stop z movement."
             return

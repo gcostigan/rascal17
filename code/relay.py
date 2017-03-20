@@ -8,12 +8,12 @@ class Relay:
         self.status = False
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin, GPIO.OUT)
-        GPIO.output(pin, 0)
+        GPIO.output(pin, 1)
 
     def toggle(self):
         self.status = not self.status
         if self.status:
-            GPIO.output(self.pin, 1)
-        else:
             GPIO.output(self.pin, 0)
+        else:
+            GPIO.output(self.pin, 1)
         return self.status
