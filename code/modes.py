@@ -35,11 +35,11 @@ motor4 = motor.Motor(ENB4, DIR4, PUL4)
 '''
 
 # Heat Tape
-HTPin = 6
+HTPin = 5
 heat_tape_relay = relay.Relay(HTPin)
 
 # Pump
-PumpPin = 4
+PumpPin = 6
 pump_relay = relay.Relay(PumpPin)
 
 '''
