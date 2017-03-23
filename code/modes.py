@@ -143,10 +143,10 @@ class Modes:
             return
     
         def z_move(val):
-            while val > 1:
+            while val > 0:
                 print "Move Can Up"
                 LA1.move(1)
-            while val < 1:
+            while val < 0:
                 print "Move Can Down"
                 LA1.move(0)
             if val == 0:
@@ -175,10 +175,10 @@ class Modes:
 
     def position(self, value):
         def y_move(val):
-            while val > 1:
+            while val > 0:
                 print "Moving can left"
                 motor1.move(.01, 1)
-            while val < 1:
+            while val < 0:
                 print "Moving can right."
                 motor1.move(.01, 0)
             if val == 0:
@@ -186,10 +186,10 @@ class Modes:
             return
     
         def x_move(val):
-            while val > 1:
+            while val > 0:
                 print "Moving can forwards."
                 motor2.move(.01, 1)
-            if val < 1:
+            if val < 0:
                 print "Moving can backwards."
                 motor2.move(.01, 0)
             if val == 0:
@@ -217,10 +217,10 @@ class Modes:
 
     def trencher(self, value):
         def y_move(val):
-            while val > 1:
+            while val > 0:
                 print "Moving trencher left."
                 motor1.move(.01, 1)
-            while val < 1:
+            while val < 0:
                 print "Moving trencher right"
                 motor1.move(.01, 0)
             if val == 0:
@@ -273,19 +273,19 @@ class Modes:
             return
     
         def tilt(val):
-            if val > 1:
+            if val > 0:
                 print "Tilting trencher forwards."
-            if val < 1:
+            if val < 0:
                 print "Tilting trencher backwards."
             if val == 0:
                 print "Stopping Trencher tilt movement."
             return
     
         def z_move(val):
-            while val > 1:
+            while val > 0:
                 print "Moving trencher up."
                 LA2.move(1)
-            while val < 1:
+            while val < 0:
                 print "Moving trencher down."
                 LA2.move(0)
             if val == 0:
@@ -293,10 +293,10 @@ class Modes:
             return
     
         def x_move(val):
-            while val > 1:
+            while val > 0:
                 print "Moving trencher forwards."
                 motor2.move(.01, 1)
-            while val < 1:
+            while val < 0:
                 print "Moving trencher backwards."
                 motor2.move(.01, 0)
             if val == 0:
