@@ -3,6 +3,7 @@ import os
 import sys
 import relay
 import motor
+import actuator
 
 '''
 import motor
