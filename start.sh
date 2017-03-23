@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Initialize header file
-cat test.txt
+cat startup_screen.txt
 
 # Start the xbox controller thread in the background to be called
 echo "Starting xbox controller instance..."
@@ -10,7 +10,7 @@ echo "Done."
 
 # Start the main script
 echo "Starting main script..."
-python main.py
+python code/main.py
 echo "Done."
 
 # Clean up and kill all background process
