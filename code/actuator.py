@@ -15,10 +15,10 @@ class Actuator:
     def move(self, dir):
         if dir:
             GPIO.output(self.dir1, 1)
-            time.sleep(2)
+            time.sleep(0.05)
             GPIO.output(self.dir1, 0)
         else:
             GPIO.output(self.dir2, 1)
-            time.sleep(2)
+            time.sleep(0.05)
             GPIO.output(self.dir2, 0)
         return
