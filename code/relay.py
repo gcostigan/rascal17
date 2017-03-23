@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 
 
 class Relay:
-
     def __init__(self, pin):
         self.pin = pin
         self.status = False

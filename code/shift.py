@@ -10,30 +10,30 @@ class ShiftRegister:
         self.size = size
         self.bits = size*8
         for y in range(self.size):
-            IO.setup(self.data, IO.OUT)  # initialize GPIO Pins as an output.
+            IO.setup(self.data, IO.OUT)     # initialize GPIO Pins as an output.
             IO.setup(self.clock, IO.OUT)
             IO.setup(self.shift, IO.OUT)
 
     def high(self):
-        IO.output(self.data, 1)            # pull up the data pin for every bit.
-        time.sleep(0.01)               # wait for 100ms
+        IO.output(self.data, 1)             # pull up the data pin for every bit.
+        time.sleep(0.01)                    # wait for 100ms
         IO.output(self.clock, 1)            # pull CLOCK pin high
         time.sleep(0.01)
         IO.output(self.clock, 0)            # pull CLOCK pin down, to send a rising edge
-        IO.output(self.data, 0)            # clear the DATA pin
+        IO.output(self.data, 0)             # clear the DATA pin
         IO.output(self.shift, 1)            # pull the SHIFT pin high to put the 8 bit data out parallel
         time.sleep(0.01)
         IO.output(self.shift, 0)            # pull down the SHIFT pin
         return
 
     def low(self):
-        IO.output(self.data, 0)  # clear the DATA pin, to send 0
-        time.sleep(0.1)  # wait for 100ms
-        IO.output(self.clock, 1)  # pull CLOCK pin high
+        IO.output(self.data, 0)             # clear the DATA pin, to send 0
+        time.sleep(0.1)                     # wait for 100ms
+        IO.output(self.clock, 1)            # pull CLOCK pin high
         time.sleep(0.1)
-        IO.output(self.clock, 0)  # pull CLOCK pin down, to send a rising edge
-        IO.output(self.data, 0)  # keep the DATA bit low to keep the countdown
-        IO.output(self.shift, 1)  # pull the SHIFT pin high to put the 8 bit data out parallel
+        IO.output(self.clock, 0)            # pull CLOCK pin down, to send a rising edge
+        IO.output(self.data, 0)             # keep the DATA bit low to keep the countdown
+        IO.output(self.shift, 1)            # pull the SHIFT pin high to put the 8 bit data out parallel
         time.sleep(0.1)
         IO.output(self.shift, 0)
         return

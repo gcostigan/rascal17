@@ -44,11 +44,11 @@ heat_tape_relay = relay.Relay(HTPin)
 PumpPin = 6
 pump_relay = relay.Relay(PumpPin)
 
-'''
-LA1_dir1 = [1, 6]
-LA1_dir2 = [1, 7]
+LA1_dir1 = 10
+LA1_dir2 = 11
 LA1 = actuator.Actuator(LA1_dir1, LA1_dir2)
 
+'''
 LA2_dir1 = [2, 0]
 LA2_dir2 = [2, 1]
 LA2 = actuator.Actuator(LA2_dir1, LA2_dir2)
