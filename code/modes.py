@@ -5,56 +5,43 @@ import relay
 import motor
 import actuator
 
-'''
-import motor
-import relay
-import actuator
-'''
-
 # Motor 1 (y_axis)
-ENB1 = 24
-DIR1 = 23
-PUL1 = 18
-motor1 = motor.Motor(ENB1, DIR1, PUL1)
+DIR1 = 6
+PUL1 = 5
+motor1 = motor.Motor(DIR1, PUL1)
 
 # Motor 2 (x_axis)
-ENB2 = 11
-DIR2 = 12
+DIR2 = 19
 PUL2 = 13
-motor2 = motor.Motor(ENB2, DIR2, PUL2)
+motor2 = motor.Motor(DIR2, PUL2)
 
-'''
 # Motor 3 (belt)
-ENB3 = [0, 6]
-DIR3 = [0, 7]
-PUL3 = [1, 0]
-motor3 = motor.Motor(ENB3, DIR3, PUL3)
+DIR3 = 12
+PUL3 = 26
+motor3 = motor.Motor(DIR3, PUL3)
 
 # Motor 4 (tilt)
-ENB4 = [1, 1]
-DIR4 = [1, 2]
-PUL4 = [1, 3]
-motor4 = motor.Motor(ENB4, DIR4, PUL4)
-'''
+DIR4 = 20
+PUL4 = 16
+motor4 = motor.Motor(DIR4, PUL4)
 
 # Heat Tape
-HTPin = 5
+HTPin = 23
 heat_tape_relay = relay.Relay(HTPin)
 
 # Pump
-PumpPin = 6
+PumpPin = 18
 pump_relay = relay.Relay(PumpPin)
 
 # Can z_move
-LA1_dir1 = 7
-LA1_dir2 = 8
+LA1_dir1 = 21
+LA1_dir2 = 7
 LA1 = actuator.Actuator(LA1_dir1, LA1_dir2)
 
 # Trencher z_move
-LA2_dir1 = 9
-LA2_dir2 = 10
+LA2_dir1 = 24
+LA2_dir2 = 25
 LA2 = actuator.Actuator(LA2_dir1, LA2_dir2)
-
 
 
 class Modes:
@@ -144,10 +131,10 @@ class Modes:
             return
     
         def z_move(val):
-            while val > 0:
+            if val > 0:
                 print "Move Can Up"
                 LA1.move(1)
-            while val < 0:
+            if val < 0:
                 print "Move Can Down"
                 LA1.move(0)
             if val == 0:
@@ -176,10 +163,10 @@ class Modes:
 
     def position(self, value):
         def y_move(val):
-            while val > 0:
+            if val > 0:
                 print "Moving can left"
                 motor1.move(.01, 1)
-            while val < 0:
+            if val < 0:
                 print "Moving can right."
                 motor1.move(.01, 0)
             if val == 0:
@@ -187,7 +174,7 @@ class Modes:
             return
     
         def x_move(val):
-            while val > 0:
+            if val > 0:
                 print "Moving can forwards."
                 motor2.move(.01, 1)
             if val < 0:
@@ -218,10 +205,10 @@ class Modes:
 
     def trencher(self, value):
         def y_move(val):
-            while val > 0:
+            if val > 0:
                 print "Moving trencher left."
                 motor1.move(.01, 1)
-            while val < 0:
+            if val < 0:
                 print "Moving trencher right"
                 motor1.move(.01, 0)
             if val == 0:
@@ -283,10 +270,10 @@ class Modes:
             return
     
         def z_move(val):
-            while val > 0:
+            if val > 0:
                 print "Moving trencher up."
                 LA2.move(1)
-            while val < 0:
+            if val < 0:
                 print "Moving trencher down."
                 LA2.move(0)
             if val == 0:
@@ -294,10 +281,10 @@ class Modes:
             return
     
         def x_move(val):
-            while val > 0:
+            if val > 0:
                 print "Moving trencher forwards."
                 motor2.move(.01, 1)
-            while val < 0:
+            if val < 0:
                 print "Moving trencher backwards."
                 motor2.move(.01, 0)
             if val == 0:

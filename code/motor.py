@@ -12,20 +12,17 @@ import time
 
 
 class Motor:
-    def __init__(self, enb, dire, pul):
+    def __init__(self, dire, pul):
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
 
-        self.enb = enb
         self.dir = dire
         self.pul = pul
         self.speed = 3  # rev/s
 
         GPIO.setup(pul, GPIO.OUT)
         GPIO.setup(dire, GPIO.OUT)
-        GPIO.setup(enb, GPIO.OUT)
 
-        GPIO.output(enb, 0)
         GPIO.output(dire, 0)
         GPIO.output(pul, 0)
 
@@ -34,9 +31,9 @@ class Motor:
         self.dir = dir[0]*8 + dire[1]
         self.pul = pul[0]*8 + pul[1]
         '''
-
         return
 
+    '''
     def on(self):
         GPIO.output(self.enb, 0)
         GPIO.output(self.dir, 0)
@@ -45,6 +42,7 @@ class Motor:
         GPIO.output(self.enb, 1)
         GPIO.output(self.enb, 0)
         return
+    '''
 
     def off(self):
         GPIO.output(self.enb, 0)
@@ -63,6 +61,14 @@ class Motor:
             GPIO.output(self.pul, 0)
             time.sleep(.0001)
             t += .0002
+        return
+
+    def pulse_on(self, direction):
+        if direction:
+            GPIO.output(self.dir, 1)
+        else:
+            GPIO.output(self.dir, 0)
+        GPIO.output(self.pul, 1)
         return
 
 '''
