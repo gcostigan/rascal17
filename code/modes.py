@@ -249,6 +249,7 @@ class Modes:
         def roll_belt_forwards(val):
             if val == 1:
                 print "Rolling belt forwards."
+                motor3.move(1, 1)
             if val == 0:
                 print "Stopping belt movement."
             return
@@ -256,6 +257,7 @@ class Modes:
         def roll_belt_backwards(val):
             if val == 1:
                 print "Rolling belt backwards."
+                motor3.move(1, 0)
             if val == 0:
                 print "Stopping belt movement."
             return
@@ -263,8 +265,10 @@ class Modes:
         def tilt(val):
             if val > 0:
                 print "Tilting trencher forwards."
+                motor4.move(1, 1)
             if val < 0:
                 print "Tilting trencher backwards."
+                motor4.move(1, 0)
             if val == 0:
                 print "Stopping Trencher tilt movement."
             return
