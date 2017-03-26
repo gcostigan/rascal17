@@ -57,10 +57,10 @@ class Motor:
         t = 0
         while t < t_stop:
             GPIO.output(self.pul, 1)
-            time.sleep(.0001)
+            time.sleep(.001)
             GPIO.output(self.pul, 0)
-            time.sleep(.0001)
-            t += .0002
+            time.sleep(.001)
+            t += .002
         return
 
     def pulse_on(self, direction):
