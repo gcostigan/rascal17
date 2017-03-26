@@ -15,7 +15,6 @@ DIR2 = 19
 PUL2 = 13
 motor2 = motor.Motor(DIR2, PUL2)
 
-<<<<<<< Updated upstream
 # Motor 3 (belt)
 DIR3 = 12
 PUL3 = 26
@@ -25,20 +24,6 @@ motor3 = motor.Motor(DIR3, PUL3)
 DIR4 = 20
 PUL4 = 16
 motor4 = motor.Motor(DIR4, PUL4)
-=======
-
-# Motor 3 (belt)
-ENB3 = 14
-DIR3 = 15
-PUL3 = 16
-motor3 = motor.Motor(ENB3, DIR3, PUL3)
-
-# Motor 4 (tilt)
-ENB4 = 17
-DIR4 = 18
-PUL4 = 19
-motor4 = motor.Motor(ENB4, DIR4, PUL4)
->>>>>>> Stashed changes
 
 # Heat Tape
 HTPin = 23
@@ -180,11 +165,8 @@ class Modes:
         def y_move(val):
             if val > 0:
                 print "Moving can left"
-<<<<<<< Updated upstream
                 motor1.move(.01, 1)
-=======
                 motor1.move(.05, 1)
->>>>>>> Stashed changes
             if val < 0:
                 print "Moving can right."
                 motor1.move(.05, 0)
@@ -226,11 +208,7 @@ class Modes:
         def y_move(val):
             if val > 0:
                 print "Moving trencher left."
-<<<<<<< Updated upstream
-                motor1.move(.01, 1)
-=======
                 motor1.move(.05, 1)
->>>>>>> Stashed changes
             if val < 0:
                 print "Moving trencher right"
                 motor1.move(.05, 0)
@@ -310,11 +288,7 @@ class Modes:
         def x_move(val):
             if val > 0:
                 print "Moving trencher forwards."
-<<<<<<< Updated upstream
-                motor2.move(.01, 1)
-=======
                 motor2.move(.05, 1)
->>>>>>> Stashed changes
             if val < 0:
                 print "Moving trencher backwards."
                 motor2.move(.05, 0)
