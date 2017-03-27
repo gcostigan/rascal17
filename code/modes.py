@@ -165,7 +165,6 @@ class Modes:
         def y_move(val):
             if val > 0:
                 print "Moving can left"
-                motor1.move(.01, 1)
                 motor1.move(.05, 1)
             if val < 0:
                 print "Moving can right."
