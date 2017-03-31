@@ -163,11 +163,14 @@ class Modes:
 
     def position(self, value):
         def y_move(val):
-            if val > 0:
+            if val > 0:md
+
                 print "Moving can left"
+                #motor1.on(1, 1)
                 motor1.move(.05, 1)
             if val < 0:
                 print "Moving can right."
+                #motor1.on(0, 1)
                 motor1.move(.05, 0)
             if val == 0:
                 print "Stopping can y-movement."
