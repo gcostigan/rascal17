@@ -114,6 +114,13 @@ class Modes:
     def melt(self, value):
         def toggle_pump(val):
             if val == 1:
+                os.system('clear')
+                print "------------Melt Mode-------------"
+                print "A = Toggle pump power."
+                print "X = Toggle heat power."
+                print "Y = Can Mode."
+                print "LTHUMBY = Move can up/down."
+                print "Ready"
                 status = pump_relay.toggle()
                 if status:
                     print "Pump is on."
@@ -123,6 +130,13 @@ class Modes:
     
         def toggle_heat(val):
             if val == 1:
+                os.system('clear')
+                print "------------Melt Mode-------------"
+                print "A = Toggle pump power."
+                print "X = Toggle heat power."
+                print "Y = Can Mode."
+                print "LTHUMBY = Move can up/down."
+                print "Ready"
                 status = heat_tape_relay.toggle()
                 if status:
                     print "Heat Tape is on."
@@ -132,12 +146,33 @@ class Modes:
     
         def z_move(val):
             if val > 0:
+                os.system('clear')
+                print "------------Melt Mode-------------"
+                print "A = Toggle pump power."
+                print "X = Toggle heat power."
+                print "Y = Can Mode."
+                print "LTHUMBY = Move can up/down."
+                print "Ready"
                 print "Move Can Up"
                 LA1.move(1)
             if val < 0:
+                os.system('clear')
+                print "------------Melt Mode-------------"
+                print "A = Toggle pump power."
+                print "X = Toggle heat power."
+                print "Y = Can Mode."
+                print "LTHUMBY = Move can up/down."
+                print "Ready"
                 print "Move Can Down"
                 LA1.move(0)
             if val == 0:
+                os.system('clear')
+                print "------------Melt Mode-------------"
+                print "A = Toggle pump power."
+                print "X = Toggle heat power."
+                print "Y = Can Mode."
+                print "LTHUMBY = Move can up/down."
+                print "Ready"
                 print "Stop z movement."
             return
     
@@ -163,27 +198,62 @@ class Modes:
 
     def position(self, value):
         def y_move(val):
-            if val > 0:md
-
+            if val > 0:
+                os.system('clear')
+                print "----------Position Mode-----------"
+                print "Y = Can Mode."
+                print "LTHUMBX = Move forwards/backwards."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Moving can left"
                 #motor1.on(1, 1)
                 motor1.move(.05, 1)
             if val < 0:
+                os.system('clear')
+                print "----------Position Mode-----------"
+                print "Y = Can Mode."
+                print "LTHUMBX = Move forwards/backwards."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Moving can right."
                 #motor1.on(0, 1)
                 motor1.move(.05, 0)
             if val == 0:
+                os.system('clear')
+                print "----------Position Mode-----------"
+                print "Y = Can Mode."
+                print "LTHUMBX = Move forwards/backwards."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Stopping can y-movement."
             return
     
         def x_move(val):
             if val > 0:
+                os.system('clear')
+                print "----------Position Mode-----------"
+                print "Y = Can Mode."
+                print "LTHUMBX = Move forwards/backwards."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Moving can forwards."
                 motor2.move(.05, 1)
             if val < 0:
+                os.system('clear')
+                print "----------Position Mode-----------"
+                print "Y = Can Mode."
+                print "LTHUMBX = Move forwards/backwards."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Moving can backwards."
                 motor2.move(.05, 0)
             if val == 0:
+                os.system('clear')
+                print "----------Position Mode-----------"
+                print "Y = Can Mode."
+                print "LTHUMBX = Move forwards/backwards."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Stopping can x-movement."
             return
     
@@ -209,12 +279,30 @@ class Modes:
     def trencher(self, value):
         def y_move(val):
             if val > 0:
+                os.system('clear')
+                print "----------Trencher Mode-----------"
+                print "A = Dig Mode."
+                print "Y = Universal Mode."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Moving trencher left."
                 motor1.move(.05, 1)
             if val < 0:
+                os.system('clear')
+                print "----------Trencher Mode-----------"
+                print "A = Dig Mode."
+                print "Y = Universal Mode."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Moving trencher right"
                 motor1.move(.05, 0)
             if val == 0:
+                os.system('clear')
+                print "----------Trencher Mode-----------"
+                print "A = Dig Mode."
+                print "Y = Universal Mode."
+                print "LTHUMBY = Move left/right."
+                print "Ready."
                 print "Stopping trencher y-movement."
             return
         
@@ -243,58 +331,208 @@ class Modes:
                 global Belt
                 Belt = not Belt
                 if Belt:
+                    os.system('clear')
+                    print "-------------Dig Mode-------------"
+                    print "A = Toggle belt power."
+                    print "Y = Trencher Mode."
+                    print "RB = Roll belt forwards."
+                    print "LB = Roll belt backwards."
+                    print "LTHUMBX = Move trencher forwards/backwards."
+                    print "LTHUMBY = Move trencher up/down."
+                    print "LTHUMBY = Tilt trencher up/down."
+                    print "Ready."
                     print "Belt is now on."
                     # motor6.enable()
                 else:
+                    os.system('clear')
+                    print "-------------Dig Mode-------------"
+                    print "A = Toggle belt power."
+                    print "Y = Trencher Mode."
+                    print "RB = Roll belt forwards."
+                    print "LB = Roll belt backwards."
+                    print "LTHUMBX = Move trencher forwards/backwards."
+                    print "LTHUMBY = Move trencher up/down."
+                    print "LTHUMBY = Tilt trencher up/down."
+                    print "Ready."
                     print "Belt is now off."
             return
     
         def roll_belt_forwards(val):
             if val == 1:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Rolling belt forwards."
                 motor3.move(1, 1)
             if val == 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Stopping belt movement."
             return
     
         def roll_belt_backwards(val):
             if val == 1:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Rolling belt backwards."
                 motor3.move(1, 0)
             if val == 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Stopping belt movement."
             return
     
         def tilt(val):
             if val > 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Tilting trencher forwards."
                 motor4.move(1, 1)
             if val < 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Tilting trencher backwards."
                 motor4.move(1, 0)
             if val == 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Stopping Trencher tilt movement."
             return
     
         def z_move(val):
             if val > 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Moving trencher up."
                 LA2.move(1)
             if val < 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Moving trencher down."
                 LA2.move(0)
             if val == 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Stopping trencher z-movement."
             return
     
         def x_move(val):
             if val > 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Moving trencher forwards."
                 motor2.move(.05, 1)
             if val < 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Moving trencher backwards."
                 motor2.move(.05, 0)
             if val == 0:
+                os.system('clear')
+                print "-------------Dig Mode-------------"
+                print "A = Toggle belt power."
+                print "Y = Trencher Mode."
+                print "RB = Roll belt forwards."
+                print "LB = Roll belt backwards."
+                print "LTHUMBX = Move trencher forwards/backwards."
+                print "LTHUMBY = Move trencher up/down."
+                print "LTHUMBY = Tilt trencher up/down."
+                print "Ready."
                 print "Stopping trencher x-movement."
             return
     
